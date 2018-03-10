@@ -3,15 +3,16 @@ import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
 import Button from './classes/Button.js';
-import Index from './index/index'
+import index from './index/index'
 
 class App extends Component {
   constructor() {
     super();
-    axios.get('/coimponents.json').then((response) => {
+    axios.get('/components.json').then((response) => {
       this.setState({ data: response.data})
     })
-    this.obj = Index
+    this.screenId = 'some text';
+    this.index = index
     this.state = {data : []}
   }
   render() {
@@ -24,7 +25,7 @@ class App extends Component {
         </header>
         <div className="App-intro">
          {this.state.data.map((val, index) => {
-          return this.obj.button
+          return this.index(val, this.screenId)
          })}
         </div>
       </div>
