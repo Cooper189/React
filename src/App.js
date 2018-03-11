@@ -8,10 +8,10 @@ import index from './index/index'
 class App extends Component {
   constructor() {
     super();
-    axios.get('/components.json').then((response) => {
+    axios.get('/api/news/page/').then((response) => {
       this.setState({ data: response.data})
     })
-    this.screenId = 'some text';
+    this.screenId = 'data';
     this.index = index
     this.state = {data : []}
   }
